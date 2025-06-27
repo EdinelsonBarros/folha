@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<HTML xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link th:href="@{/css/main.css}" rel="stylesheet">
+	<link th:href="@{/css/header.css}" rel="stylesheet">
+	<title>Tabela</title>
+</head>
+
+<style>
+	#containerMesage {
+		display: flex;
+		justify-content: center;
+
+	}
+
+	#containerMesage {
+		font-size: 1.3rem;
+		color: red;
+	}
+</style>
+
+<body>
+	<header th:replace="~{registroheader :: header}"></header>
+	<div id="containerMesage">
+		<span id="invalidDate"></span>
+	</div>
+
+	<main>
+
+		<form class="form-container">
+			<div class="input-container">
+				<label>Código do Órgão</label>
+				<input type="number" th:name="orgcodigo" oninput="limitarDigitos(this, 5)">
+			</div>
+			<div class="input-container">
+				<label>Código da folha</label>
+				<input type="number" th:name="folcod">
+			</div>
+			<div class="input-container">
+				<label>Matrícula do servidor</label>
+				<input type="text" th:name="lcomatrgdf">
+			</div>
+			<div class="input-container">
+				<label>Nome do servidor</label>
+				<input type="text" th:name="lconomserv">
+			</div>
+			<div class="input-container">
+				<label>Valor do pagamento a ser creditado</label>
+				<input type="number" th:name="lcovlrcred">
+			</div>
+			<div class="input-container">
+				<label>Agência da conta corrente</label>
+				<input type="number" th:name="lcoageconta">
+			</div>
+			<div class="input-container">
+				<label>Número da conta corrente</label>
+				<input type="number" th:name="lcoconta">
+			</div>
+			<div class="input-container">
+				<label>Dígito da conta corrente</label>
+				<input type="number" th:name="lcodgvconta">
+			</div>
+			<div class="input-container">
+				<label>Tipo da conta corrente</label>
+				<input type="number" th:name="tpgtpconta">
+			</div>
+			<div class="input-container">
+				<label>Banco de pagamento</label>
+				<input type="number" th:name="lcobancopag">
+			</div>
+			<div class="input-container">
+				<label>Agência de pagamento</label>
+				<input type="number" th:name="lcoagepag">
+			</div>
+			<div class="input-container">
+				<label>UF da agência de pagamento</label>
+				<input type="number" th:name="lcoufebanco">
+			</div>
+			<div class="input-container">
+				<label>CPF do servidor</label>
+				<input type="number" th:name="lcocpf">
+			</div>
+			
+			
+			<div class="button-container">
+				<button type="submit" class="submit">GRAVAR</button>
+				<button type="button" class="clearform">LIMPAR CAMPOS</button>
+			</div>
+		</form>
+	</main>
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script th:src="@{/js/jquery.mask.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+
+
+
+
+
+</HTML>

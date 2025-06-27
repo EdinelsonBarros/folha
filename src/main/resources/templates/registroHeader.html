@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<HTML xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link th:href="@{/css/main.css}" rel="stylesheet">
+	<link th:href="@{/css/header.css}" rel="stylesheet">
+	<title>Tabela</title>
+</head>
+
+<style>
+	#containerMesage {
+		display: flex;
+		justify-content: center;
+
+	}
+
+	#containerMesage {
+		font-size: 1.3rem;
+		color: red;
+	}
+</style>
+
+<body>
+	<header>
+		<nav id="navmenu" th:fragment="header">
+			<a th:href="@{/registroHeader}">REGISTRO HEADER</a>
+			<a th:href="@{/registroDetalhe}">REGISTRO DETALHE</a>
+			<a th:href="@{/registroTrailler}">REGISTRO TRALLER</a>
+			<a th:href="@{/registros}">REGISTROS</a>
+		</nav>
+	</header>
+	<div id="containerMesage">
+		<span id="invalidDate"></span>
+	</div>
+
+	<main>
+		<h1>Registro Header</h1>
+		<form class="form-container">
+			<div class="input-container">
+				<label>Código do Órgão</label>
+				<input type="number" th:name="orgcodigo" oninput="limitarDigitos(this, 5)">
+			</div>
+			<div class="input-container">
+				<label>Código da folha</label>
+				<input type="number" th:name="folcod" oninput="limitarDigitos(this, 3)">
+			</div>
+			<div class="input-container">
+				<label>Mês referência do pagamento</label>
+				<select th:name="hdrmesref">
+					<option value="">--Selecione--</option>
+					<option value="01">Janeiro</option>
+					<option value="02">Fevereiro</option>
+					<option value="03">Março</option>
+					<option value="04">Abril</option>
+					<option value="05">Maio</option>
+					<option value="06">Junho</option>
+					<option value="07">Julho</option>
+					<option value="08">Agosto</option>
+					<option value="09">Setembro</option>
+					<option value="10">Outubro</option>
+					<option value="11">Novembro</option>
+					<option value="12">Dezembro</option>
+				</select>
+				
+			</div>
+			<div class="input-container">
+				<label>Ano de referência do pagamento</label>
+				<input id="ano" type="number" th:name="hdranoref">
+			</div>
+			<div class="input-container">
+				<label>Tipo de pagamento</label>
+				<input type="number" th:name="hdrtipopag" oninput="limitarDigitos(this, 2)">
+			</div>
+			<div class="input-container">
+				<label>Descrição do pagamento</label>
+				<input type="text" th:name="hdrdespag" oninput="limitarDigitos(this, 20)">
+			</div>
+			<div class="input-container">
+				<label>Quantidade de registros para crédito</label>
+				<input type="number" th:name="hdrqtdcred" oninput="limitarDigitos(this, 6)">
+			</div>
+			<div class="input-container">
+				<label>Valor total dos créditos</label>
+				<input type="number" th:name="hdrvlrcred">
+			</div>
+			<div class="button-container">
+				<button type="submit" class="submit">GRAVAR</button>
+				<button type="button" class="clearform">LIMPAR CAMPOS</button>
+			</div>
+		</form>
+	</main>
+	<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+	<script th:src="@{/js/jquery.mask.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+</body>
+
+
+
+
+
+</HTML>
