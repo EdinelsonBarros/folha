@@ -38,7 +38,7 @@
 
 	<main>
 		<h1>Registro Header</h1>
-		<form class="form-container">
+		<form method="post" class="form-container" action="/saveHeader">
 			<div class="input-container">
 				<label>Código do Órgão</label>
 				<input type="number" th:name="orgcodigo" oninput="limitarDigitos(this, 5)">
@@ -68,26 +68,26 @@
 			</div>
 			<div class="input-container">
 				<label>Ano de referência do pagamento</label>
-				<input id="ano" type="number" th:name="hdranoref">
+				<input id="ano" type="number" th:name="hdranoref" name="hdranoref">
 			</div>
 			<div class="input-container">
 				<label>Tipo de pagamento</label>
-				<input type="number" th:name="hdrtipopag" oninput="limitarDigitos(this, 2)">
+				<input type="number" th:name="hdrtipopag" oninput="limitarDigitos(this, 2)" name="hdrtipopag">
 			</div>
 			<div class="input-container">
 				<label>Descrição do pagamento</label>
-				<input type="text" th:name="hdrdespag" oninput="limitarDigitos(this, 20)">
+				<input type="text" th:name="hdrdespag" oninput="limitarDigitos(this, 20)" name="hdrdespag">
 			</div>
 			<div class="input-container">
 				<label>Quantidade de registros para crédito</label>
-				<input type="number" th:name="hdrqtdcred" oninput="limitarDigitos(this, 6)">
+				<input type="number" th:name="hdrqtdcred" oninput="limitarDigitos(this, 6)" name="hdrqtdcred">
 			</div>
 			<div class="input-container">
 				<label>Valor total dos créditos</label>
-				<input type="number" th:name="hdrvlrcred">
+				<input type="text" th:name="hdrvlrcred" name="hdrvlrcred" class="monetario">
 			</div>
 			<div class="button-container">
-				<button type="submit" class="submit">GRAVAR</button>
+				<button type="submit" class="submit" id="btnGravar">GRAVAR</button>
 				<button type="button" class="clearform">LIMPAR CAMPOS</button>
 			</div>
 		</form>

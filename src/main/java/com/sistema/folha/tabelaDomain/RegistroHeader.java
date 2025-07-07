@@ -18,7 +18,7 @@ public class RegistroHeader {
 	
 	private int orgcodigo;  // 5 digitos
 	private String folcod; // 3 digitos
-	private String movtipreg; // valor fixo 1
+	private int movtipreg; // valor fixo 1
 	private int hdrmesref; // 2 digitos
 	private int hdranoref; // 4 digitos
 	private int hdrtipopag; // 2 digitos
@@ -31,7 +31,7 @@ public class RegistroHeader {
 		super();
 	}
 
-	public RegistroHeader(int orgcodigo, String folcod, String movtipreg, int hdrmesref, int hdranoref, int hdrtipopag,
+	public RegistroHeader(int orgcodigo, String folcod, int movtipreg, int hdrmesref, int hdranoref, int hdrtipopag,
 			String hdrdespag, int hdrqtdcred, BigDecimal hdrvlrcred) {
 		super();
 		this.orgcodigo = orgcodigo;
@@ -61,12 +61,12 @@ public class RegistroHeader {
 		this.folcod = folcod;
 	}
 
-	public String getMovtipreg() {
+	public int getMovtipreg() {
 		return movtipreg;
 	}
 
-	public void setMovtipreg(String movtipreg) {
-		this.movtipreg = movtipreg;
+	public void setMovtipreg(int movtipreg) {
+		this.movtipreg = 1;
 	}
 
 	public int getHdrmesref() {
@@ -98,7 +98,7 @@ public class RegistroHeader {
 	}
 
 	public void setHdrdespag(String hdrdespag) {
-		this.hdrdespag = hdrdespag;
+		this.hdrdespag = hdrdespag.replaceAll("[^\\p{L}\\p{N}\\s]", "");
 	}
 
 	public int getHdrqtdcred() {

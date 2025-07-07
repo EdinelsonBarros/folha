@@ -50,6 +50,10 @@ h1{
 	outline-color: red;
 }
 
+#btnGravar:disabled {
+	background-color: #b7b3af;
+}
+
 .button-container{
 	grid-column: 1 / -1;
 	display: flex;

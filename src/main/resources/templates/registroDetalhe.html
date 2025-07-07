@@ -31,58 +31,58 @@
 
 	<main>
 
-		<form class="form-container">
+		<form class="form-container" method="post" action="/saveRegistroDetalhe">
 			<div class="input-container">
 				<label>Código do Órgão</label>
 				<input type="number" th:name="orgcodigo" oninput="limitarDigitos(this, 5)">
 			</div>
 			<div class="input-container">
 				<label>Código da folha</label>
-				<input type="number" th:name="folcod">
+				<input type="number" th:name="folcod" oninput="limitarDigitos(this, 3)">
 			</div>
 			<div class="input-container">
 				<label>Matrícula do servidor</label>
-				<input type="text" th:name="lcomatrgdf">
+				<input type="text" th:name="lcomatrgdf" oninput="limitarDigitos(this, 8)">
 			</div>
 			<div class="input-container">
 				<label>Nome do servidor</label>
-				<input type="text" th:name="lconomserv">
+				<input type="text" th:name="lconomserv" oninput="limitarDigitos(this, 37)">
 			</div>
-			<div class="input-container">
+			<div class="input-container"> <!--Adicionar validação especial-->
 				<label>Valor do pagamento a ser creditado</label>
-				<input type="number" th:name="lcovlrcred">
+				<input type="text" th:name="lcovlrcred" class="monetario">
 			</div>
 			<div class="input-container">
 				<label>Agência da conta corrente</label>
-				<input type="number" th:name="lcoageconta">
+				<input type="number" th:name="lcoageconta" oninput="limitarDigitos(this, 3)">
 			</div>
 			<div class="input-container">
 				<label>Número da conta corrente</label>
-				<input type="number" th:name="lcoconta">
+				<input type="number" th:name="lcoconta" oninput="limitarDigitos(this, 6)">
 			</div>
 			<div class="input-container">
 				<label>Dígito da conta corrente</label>
-				<input type="number" th:name="lcodgvconta">
+				<input type="text" th:name="lcodgvconta" oninput="limitarDigitos(this, 1)">
 			</div>
 			<div class="input-container">
 				<label>Tipo da conta corrente</label>
-				<input type="number" th:name="tpgtpconta">
+				<input type="number" th:name="tpgtpconta" oninput="limitarDigitos(this, 1)">
 			</div>
 			<div class="input-container">
 				<label>Banco de pagamento</label>
-				<input type="number" th:name="lcobancopag">
+				<input type="number" th:name="lcobancopag" oninput="limitarDigitos(this, 3)">
 			</div>
 			<div class="input-container">
 				<label>Agência de pagamento</label>
-				<input type="number" th:name="lcoagepag">
+				<input type="number" th:name="lcoagepag" oninput="limitarDigitos(this, 4)">
 			</div>
 			<div class="input-container">
 				<label>UF da agência de pagamento</label>
-				<input type="number" th:name="lcoufebanco">
+				<input type="text" th:name="lcoufebanco" oninput="limitarDigitos(this, 4)">
 			</div>
 			<div class="input-container">
-				<label>CPF do servidor</label>
-				<input type="number" th:name="lcocpf">
+				<label>CPF do servidor</label> <!--Adicionar validação para cpf-->
+				<input type="text" th:name="lcocpf" oninput="limitarDigitos(this, 11)">
 			</div>
 			
 			

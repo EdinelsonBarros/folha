@@ -1,0 +1,17 @@
+Criar view
+
+REGISTRO HEADER 	OK
+REGISTRO DETALHE	OK
+REGISTRO TRAILER	OK
+	PERSISTÊNCIA 	OK
+
+VALIDACAO
+
+Converter cpf para long ou nao para gravar no banco
+
+
+Criar DTOS para receber valores monetários como String e depois converter para 
+BigDecimal em JAVA.
+
+CRIAR PESQUISA DE REGISTROS
+CRIAR VIZUALIZÃO DE REGISTRO CADASTRADOS
