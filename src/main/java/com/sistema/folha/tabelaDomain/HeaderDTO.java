@@ -13,27 +13,24 @@ import jakarta.validation.constraints.Size;
 
 public class HeaderDTO {
 	
-	@NotEmpty
-	@Size(max = 5)
+	
 	private int orgcodigo; // 5 digitos
-	@NotEmpty
+
 	private int folcod; // 3 digitos
-	@NotEmpty
+	
 	private int hdrmesref; // 2 digitos
-	@NotEmpty
+	
 	private int hdranoref; // 4 digitos
 
-	@NotEmpty
+	
 	private int hdrtipopag; // 2 digitos
-	@NotEmpty
-	@Size(max = 20)
+
 	private String hdrdespag; // alfanumerico
 
-	@NotEmpty
-	@Size(max = 6)
+	
 	private int hdrqtdcred; // no maximo sei numeros
 
-	@NotEmpty
+	
 	private String hdrvlrcred; // duas casas decimais
 
 	public HeaderDTO() {
@@ -41,9 +38,10 @@ public class HeaderDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public HeaderDTO(@NotEmpty @Size(max = 5) int orgcodigo, @NotEmpty int folcod, @NotEmpty int hdrmesref,
-			@NotEmpty int hdranoref, @NotEmpty int hdrtipopag, @NotEmpty @Size(max = 20) String hdrdespag,
-			@NotEmpty @Size(max = 6) int hdrqtdcred, @NotEmpty String hdrvlrcred) {
+	
+
+	public HeaderDTO(int orgcodigo, int folcod, int hdrmesref, int hdranoref, int hdrtipopag, String hdrdespag,
+			int hdrqtdcred, String hdrvlrcred) {
 		super();
 		this.orgcodigo = orgcodigo;
 		this.folcod = folcod;
@@ -54,6 +52,8 @@ public class HeaderDTO {
 		this.hdrqtdcred = hdrqtdcred;
 		this.hdrvlrcred = hdrvlrcred;
 	}
+
+
 
 	public int getOrgcodigo() {
 		return orgcodigo;
