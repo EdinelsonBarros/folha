@@ -30,7 +30,7 @@
 	</div>
 
 	<main>
-
+		
 		<form class="form-container" method="post" action="/saveRegistroDetalhe">
 			<div class="input-container">
 				<label>Código do Órgão</label>
@@ -78,7 +78,7 @@
 			</div>
 			<div class="input-container">
 				<label>UF da agência de pagamento</label>
-				<input type="text" th:name="lcoufebanco" oninput="limitarDigitos(this, 4)">
+				<input type="text" th:name="lcoufebanco" oninput="limitarDigitos(this, 2)">
 			</div>
 			<div class="input-container">
 				<label>CPF do servidor</label> <!--Adicionar validação para cpf-->

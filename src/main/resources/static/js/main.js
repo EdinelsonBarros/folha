@@ -5,10 +5,11 @@ $(document).ready(function() {
 	$('.monetario').on('input change blur', function() {
 		validarQtdDigitosAntesVirgula(this);
 	});
-	// Ao digitar ou mudar qualquer campo do formulário
-	/*$('form input, form select').on('input change blur', function () {
-		validarFormulario();
-	});*/
+
+	$('form input, form select, form').on('focus', function() {
+		$('.erro').fadeOut('slow'); // ou .remove() se quiser sumir completamente
+	});
+
 });
 
 function limitarDigitos(input, maxLength) {
@@ -128,40 +129,6 @@ function validarQtdDigitosAntesVirgula(input) {
 	}
 }
 
-/*function validarFormulario() {
-	let isValid =true;
-	console.log(isValid);
-	// Verifica se todos os inputs/selects estão preenchidos
-	$('form input, form select').each(function () {
-		const valor = $(this).val();
-		const isSelect = $(this).is('select');
-
-		// Verifica se está vazio ou possui classe de erro
-		if (valor.trim() === '' || $(this).hasClass('invalidInput')) {
-			console.log("Tem erro");
-			isValid = false;
-			console.log(isValid);
-			return false; // para o .each
-		}
-
-		// Verifica se select ainda está na opção padrão
-		if (isSelect && valor === '') {
-			console.log(" esta na opção pardrao")
-			isValid = false;
-			console.log(isValid);
-			return false;
-		}
-	});
-	
-	const valorCred = parseFloat($('input[name="hdrvlrcred"]').val().replace(',', '.'));
-		if (isNaN(valorCred) || valorCred <= 0) {
-			isValid = false;
-		}
-
-	// Habilita ou desabilita o botão
-	console.log("Verificação")
-	$('#btnGravar').prop('disabled', !isValid);
-}*/
 
 function removerCaracteresEspeciais(input) {
 	const $input = $(input);

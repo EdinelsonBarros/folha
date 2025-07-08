@@ -50,6 +50,12 @@ h1{
 	outline-color: red;
 }
 
+.erro {
+	text-align: center;
+	font-size: 1.2rem;
+	color: #e81a73;
+}
+
 #btnGravar:disabled {
 	background-color: #b7b3af;
 }

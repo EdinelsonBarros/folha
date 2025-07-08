@@ -1,74 +1,52 @@
 package com.sistema.folha.tabelaDomain;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.time.LocalDate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.DecimalMin;
 
-@Entity(name = "pagamento")
-public class RegistroHeader {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	String id;
-
-	@Min(0)
-	@Max(99999)
+public class HeaderDTO {
+	
+	@NotEmpty
+	@Size(max = 5)
 	private int orgcodigo; // 5 digitos
-
-	@Min(9)
-	@Max(999)
+	@NotEmpty
 	private int folcod; // 3 digitos
-
-	private int movtipreg; // valor fixo 1
-
-	@Min(9)
-	@Max(99)
+	@NotEmpty
 	private int hdrmesref; // 2 digitos
-
-	@Min(9)
-	@Max(9999)
+	@NotEmpty
 	private int hdranoref; // 4 digitos
 
-	@Min(9)
-	@Max(99)
+	@NotEmpty
 	private int hdrtipopag; // 2 digitos
-
-	@NotBlank
+	@NotEmpty
 	@Size(max = 20)
 	private String hdrdespag; // alfanumerico
 
-	@Min(9)
-	@Max(999999)
+	@NotEmpty
+	@Size(max = 6)
 	private int hdrqtdcred; // no maximo sei numeros
 
-	@NotNull
-	@Digits(integer = 12, fraction = 2)
-	@DecimalMin(value = "0.00", inclusive = false)
-	private BigDecimal hdrvlrcred; // duas casas decimais
-	// String filler; espaços em brancos quando for gerar o arquivos
+	@NotEmpty
+	private String hdrvlrcred; // duas casas decimais
 
-	public RegistroHeader() {
+	public HeaderDTO() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public RegistroHeader(int orgcodigo, int folcod, int movtipreg, int hdrmesref, int hdranoref, int hdrtipopag,
-			String hdrdespag, int hdrqtdcred, BigDecimal hdrvlrcred) {
+	public HeaderDTO(@NotEmpty @Size(max = 5) int orgcodigo, @NotEmpty int folcod, @NotEmpty int hdrmesref,
+			@NotEmpty int hdranoref, @NotEmpty int hdrtipopag, @NotEmpty @Size(max = 20) String hdrdespag,
+			@NotEmpty @Size(max = 6) int hdrqtdcred, @NotEmpty String hdrvlrcred) {
 		super();
 		this.orgcodigo = orgcodigo;
 		this.folcod = folcod;
-		this.movtipreg = movtipreg;
 		this.hdrmesref = hdrmesref;
 		this.hdranoref = hdranoref;
 		this.hdrtipopag = hdrtipopag;
@@ -91,14 +69,6 @@ public class RegistroHeader {
 
 	public void setFolcod(int folcod) {
 		this.folcod = folcod;
-	}
-
-	public int getMovtipreg() {
-		return movtipreg;
-	}
-
-	public void setMovtipreg(int movtipreg) {
-		this.movtipreg = 1;
 	}
 
 	public int getHdrmesref() {
@@ -130,7 +100,7 @@ public class RegistroHeader {
 	}
 
 	public void setHdrdespag(String hdrdespag) {
-		this.hdrdespag = hdrdespag.replaceAll("[^\\p{L}\\p{N}\\s]", "");
+		this.hdrdespag = hdrdespag;
 	}
 
 	public int getHdrqtdcred() {
@@ -141,12 +111,14 @@ public class RegistroHeader {
 		this.hdrqtdcred = hdrqtdcred;
 	}
 
-	public BigDecimal getHdrvlrcred() {
+	public String getHdrvlrcred() {
 		return hdrvlrcred;
 	}
 
-	public void setHdrvlrcred(BigDecimal hdrvlrcred) {
+	public void setHdrvlrcred(String hdrvlrcred) {
 		this.hdrvlrcred = hdrvlrcred;
 	}
 
+	
+	
 }

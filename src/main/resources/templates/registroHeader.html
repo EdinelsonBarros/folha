@@ -38,18 +38,26 @@
 
 	<main>
 		<h1>Registro Header</h1>
-		<form method="post" class="form-container" action="/saveHeader">
+		<div th:if="${erro}" class="erro">
+			<p th:text="${erro}"></p>
+		</div>
+
+		<div th:if="${mensagem}" class="erro">
+			<p th:text="${mensagem}"></p>
+		</div>
+		
+		<form th:object="${headerDTO}" method="post" class="form-container" action="/saveHeader">
 			<div class="input-container">
 				<label>Código do Órgão</label>
-				<input type="number" th:name="orgcodigo" oninput="limitarDigitos(this, 5)">
+				<input type="number" th:field="*{orgcodigo}" oninput="limitarDigitos(this, 5)">
 			</div>
 			<div class="input-container">
 				<label>Código da folha</label>
-				<input type="number" th:name="folcod" oninput="limitarDigitos(this, 3)">
+				<input type="number" th:field="*{folcod}" oninput="limitarDigitos(this, 3)">
 			</div>
 			<div class="input-container">
 				<label>Mês referência do pagamento</label>
-				<select th:name="hdrmesref">
+				<select th:field="*{hdrmesref}">
 					<option value="">--Selecione--</option>
 					<option value="01">Janeiro</option>
 					<option value="02">Fevereiro</option>
@@ -64,27 +72,27 @@
 					<option value="11">Novembro</option>
 					<option value="12">Dezembro</option>
 				</select>
-				
+
 			</div>
 			<div class="input-container">
 				<label>Ano de referência do pagamento</label>
-				<input id="ano" type="number" th:name="hdranoref" name="hdranoref">
+				<input id="ano" type="number" th:field="*{hdranoref}">
 			</div>
 			<div class="input-container">
 				<label>Tipo de pagamento</label>
-				<input type="number" th:name="hdrtipopag" oninput="limitarDigitos(this, 2)" name="hdrtipopag">
+				<input type="number" th:field="*{hdrtipopag}" oninput="limitarDigitos(this, 2)">
 			</div>
 			<div class="input-container">
 				<label>Descrição do pagamento</label>
-				<input type="text" th:name="hdrdespag" oninput="limitarDigitos(this, 20)" name="hdrdespag">
+				<input type="text" th:field="*{hdrdespag}" oninput="limitarDigitos(this, 20)">
 			</div>
 			<div class="input-container">
 				<label>Quantidade de registros para crédito</label>
-				<input type="number" th:name="hdrqtdcred" oninput="limitarDigitos(this, 6)" name="hdrqtdcred">
+				<input type="number" th:field="*{hdrqtdcred}" oninput="limitarDigitos(this, 6)">
 			</div>
 			<div class="input-container">
 				<label>Valor total dos créditos</label>
-				<input type="text" th:name="hdrvlrcred" name="hdrvlrcred" class="monetario">
+				<input type="text" th:field="*{hdrvlrcred}" class="monetario">
 			</div>
 			<div class="button-container">
 				<button type="submit" class="submit" id="btnGravar">GRAVAR</button>
